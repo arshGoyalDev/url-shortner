@@ -17,8 +17,6 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 - Users can view their all previous shortened links
 - Users can delete account info or update
 
-<br>
-
 ## Screenshot
 
 ![](./public/shortly.png)

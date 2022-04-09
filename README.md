@@ -2,7 +2,9 @@
 
 This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## The challenge
+![](./public/shortly.png)
+
+### The challenge
 
 - View the optimal layout for the site depending on their device's screen size
 - Shorten any valid URL
@@ -11,15 +13,12 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 - Receive an error message when the `form` is submitted if:
   - The `input` field is empty
 
-### Additional Features
+#### Additional Features
 
 - Users can login and sign-up
 - Users can view their all previous shortened links
-- Users can delete account info or update
+- Users can delete account info or update info
 
-## Screenshot
-
-![](./public/shortly.png)
 
 ### Links
 
@@ -33,15 +32,15 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 - [Tailwind CSS](https://tailwindcss.com) - CSS Framework
 - [Firebase](https://firebase.google.com) - Database
 
-## What I learned
+### What I learned
 
 It's my first time using firebase so I have learnt a lot while doing the challenge
 
-## Continued development
+### Continued development
 
 This project currently is in development
 
-## Author
+### Author
 
 - GitHub - [@arshWebDev](https://github.com/arshWebDev)
 - Twitter - [@arshWebDev](https://www.twitter.com/arshWebDev)

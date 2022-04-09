@@ -4,7 +4,7 @@ Make links better, shorter, and see better-detailed insights for the link only w
 
 <!-- ![](./public/shortly.png) -->
 
-### The challenge
+## The challenge
 
 - View the optimal layout for the site depending on their device's screen size
 - Shorten any valid URL

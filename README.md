@@ -1,6 +1,6 @@
-# Frontend Mentor - Shortly URL shortening API Challenge solution
+# Shortly URL shortener
 
-This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+Make links better, shorter, and see better-detailed insights for the link only with shortly.
 
 <!-- ![](./public/shortly.png) -->
 
@@ -18,6 +18,10 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 - Users can login and sign-up
 - Users can view their all previous shortened links
 - Users can delete account info or update info
+
+#### Challenge Link
+- Challenge by Frontend Mentor
+- [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G).
 
 
 ### Links

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/logo.svg";
 
@@ -31,16 +32,26 @@ const Header = ({ activeLink }) => {
       `}
       >
         <ul className="flex flex-col lg:flex-row items-center lg:text-gray-400">
-          <li className="py-3 px-4 rounded-md hover:text-black transition-colors">Features</li>
+          <Link to="/features">
+            <li className="py-3 px-4 rounded-md hover:text-black transition-colors">Features</li>
+          </Link>
+          <Link to="/pricing">
           <li className="py-3 px-4 rounded-md hover:text-black transition-colors">Pricing</li>
+          </Link>
+          <Link to="/resources">
           <li className="py-3 px-4 rounded-md hover:text-black transition-colors">Resources</li>
+          </Link>
         </ul>
 
         <div className="flex flex-col lg:flex-row items-center gap-3 w-full lg:w-auto mt-4 lg:mt-0 pt-3 lg:pt-0 border-t border-solid lg:border-none border-[#8f78c9]">
-          <button className="py-2.5 px-8 font-bold lg:text-gray-400">Login</button>
+          <Link to='/login'>
+            <button className="py-2.5 px-8 font-bold lg:text-gray-400">Login</button>
+          </Link>
+          <Link to='/sign-up'>
           <button className="py-2.5 px-8 text-white font-bold bg-[#2bd1cf] rounded-full">
             Sign Up
           </button>
+          </Link>
         </div>
       </nav>
     </header>

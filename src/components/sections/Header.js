@@ -6,8 +6,10 @@ import logo from "../../assets/images/logo.svg";
 const Header = ({ activeLink }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
+  console.log(activeLink);
+
   return (
-    <header className="relative flex justify-between lg:justify-start items-center lg:gap-8 py-6 lg:py-8 px-5 lg:px-20 xl:px-36">
+    <header className="relative flex justify-between lg:justify-start items-center lg:gap-8 xl:gap-12 py-6 lg:py-8 px-5 lg:px-20 xl:px-36">
       <Link to="/">
         <img src={logo} alt="Shortly" />
       </Link>
@@ -53,12 +55,12 @@ const Header = ({ activeLink }) => {
 
         <div className="flex flex-col lg:flex-row items-center gap-3 w-full lg:w-auto mt-4 lg:mt-0 pt-3 lg:pt-0 border-t border-solid lg:border-none border-[#8f78c9]">
           <Link to="/login">
-            <button className="py-2.5 px-8 font-bold lg:text-gray-400">
+            <button className="py-2.5 px-8 font-bold lg:text-gray-400 lg:hover:text-black transition-all">
               Login
             </button>
           </Link>
           <Link to="/sign-up">
-            <button className="py-2.5 px-8 text-white font-bold bg-[#2bd1cf] rounded-full">
+            <button className="py-2.5 px-8 text-white font-bold bg-[#2bd1cf] lg:hover:bg-opacity-30 rounded-full transition-all">
               Sign Up
             </button>
           </Link>
@@ -67,5 +69,9 @@ const Header = ({ activeLink }) => {
     </header>
   );
 };
+
+Header.defaultProps = {
+  activeLink: null
+}
 
 export default Header;

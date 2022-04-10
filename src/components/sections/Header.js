@@ -8,7 +8,9 @@ const Header = ({ activeLink }) => {
 
   return (
     <header className="relative flex justify-between lg:justify-start items-center lg:gap-8 py-6 lg:py-8 px-5 lg:px-20 xl:px-36">
-      <img src={logo} alt="Shortly" />
+      <Link to='/'>
+        <img src={logo} alt="Shortly" />
+      </Link>
 
       <button
         aria-label="menu-toggle-btn"

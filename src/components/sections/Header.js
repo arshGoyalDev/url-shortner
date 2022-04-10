@@ -6,8 +6,6 @@ import logo from "../../assets/images/logo.svg";
 const Header = ({ activeLink }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
-  console.log(activeLink);
-
   return (
     <header className="relative flex justify-between lg:justify-start items-center lg:gap-8 xl:gap-12 py-6 lg:py-8 px-5 lg:px-20 xl:px-36">
       <Link to="/">
@@ -71,7 +69,7 @@ const Header = ({ activeLink }) => {
 };
 
 Header.defaultProps = {
-  activeLink: null
-}
+  activeLink: null,
+};
 
 export default Header;

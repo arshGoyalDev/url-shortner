@@ -1,6 +1,6 @@
 import { Header } from '../components/sections'
 
-const home = () => {
+const Home = () => {
   return (
     <main>
       <Header />
@@ -8,4 +8,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home

@@ -1,11 +1,17 @@
-import { Header } from '../components/sections'
+import { Header } from "../components/sections";
+
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
-    <main>
-      <Header />
-    </main>
-  )
-}
+    <div>
+      <Helmet>
+        <title>Shortly - The only URL Shortener you will ever need</title>
+      </Helmet>
 
-export default Home
+      <Header />
+    </div>
+  );
+};
+
+export default Home;

@@ -6,13 +6,16 @@ import "./index.css";
 import App from "./App";
 
 import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
   <>
     <BrowserRouter>
-      <App tab="home" />
+      <HelmetProvider>
+        <App tab="home" />
+      </HelmetProvider>
     </BrowserRouter>
   </>
 );

@@ -1,10 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 
+import { Helmet } from "react-helmet-async";
+
 const SignUp = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
+      <Helmet>
+        <title>Sign Up - Shortly</title>
+      </Helmet>
+
       <div className="py-10 px-5 w-[90%] max-w-[400px] md:shadow-2xl md:shadow-gray-200 md:rounded-xl">
         <h2 className="text-3xl font-semibold flex items-center gap-1">
           <button

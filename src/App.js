@@ -4,7 +4,7 @@ import { Home, SignUp, Login } from "./pages";
 
 const App = () => {
   return (
-    <main className="App">
+    <main className="bg-gray-50 min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
 

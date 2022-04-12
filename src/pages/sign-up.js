@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
 import { auth } from "../firebase/index";
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -58,7 +58,7 @@ const SignUp = () => {
         password: false,
       });
 
-      navigate('/');
+      navigate("/");
     } catch (error) {
       if (error.message.toLowerCase().includes("email")) {
         setError({

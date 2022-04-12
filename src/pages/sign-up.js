@@ -6,12 +6,12 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center md:p-10">
+    <div className="min-h-screen w-full flex items-center justify-center sm:p-10">
       <Helmet>
         <title>Sign Up - Shortly</title>
       </Helmet>
 
-      <div className="py-10 md:py-12 px-5 md:px-12 w-[90%] max-w-[440px] md:shadow-2xl md:bg-white md:shadow-gray-200 md:rounded-2xl">
+      <div className="py-10 sm:py-12 px-5 sm:px-12 w-[90%] max-w-[440px] sm:shadow-2xl sm:bg-white sm:shadow-gray-200 sm:rounded-2xl">
         <h2 className="text-3xl font-semibold">Sign Up</h2>
 
         <div className="flex items-center gap-2 mt-7">

@@ -1,9 +1,16 @@
+import { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  console.log(username, email, password);
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center sm:p-10">
@@ -50,6 +57,8 @@ const SignUp = () => {
                 name="username"
                 id="username"
                 placeholder="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>
@@ -65,6 +74,8 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>
@@ -76,10 +87,12 @@ const SignUp = () => {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>

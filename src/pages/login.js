@@ -1,9 +1,15 @@
+import { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  console.log("name:", name, " ", "password:", password);
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center sm:p-10">
@@ -50,6 +56,8 @@ const Login = () => {
                 name="name"
                 id="name"
                 placeholder="username or email address"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>
@@ -61,10 +69,12 @@ const Login = () => {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>

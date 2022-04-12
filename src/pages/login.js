@@ -1,13 +1,70 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState({});
   const navigate = useNavigate();
+
+  const login = async (e) => {
+    e.preventDefault();
+
+    const correctEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!email.match(correctEmail) || email === "") {
+      setError({
+        username: false,
+        email: true,
+        password: false,
+      });
+
+      return;
+    } else if (password === "") {
+      setError({
+        username: false,
+        email: false,
+        password: true,
+      });
+
+      return;
+    }
+
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
+
+      setError({});
+      navigate("/");
+    } catch (error) {
+      if (error.message.toLowerCase().includes("email")) {
+        setError({
+          username: false,
+          email: true,
+          password: false,
+        });
+      } else if (error.message.toLowerCase().includes("password")) {
+        setError({
+          username: false,
+          email: false,
+          password: true,
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    const logout = async () => {
+      await signOut(auth);
+    };
+
+    logout();
+  }, []);
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center sm:p-10">
@@ -40,7 +97,7 @@ const Login = () => {
           Or, login with
         </span>
 
-        <form>
+        <form onSubmit={login}>
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-2">
               <label
@@ -56,8 +113,15 @@ const Login = () => {
                 placeholder="email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
+                className={`bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none ${
+                  error.email ? "border-red-600" : "border-gray-100"
+                }`}
               />
+              {error.email && (
+                <span className="text-red-600 text-xs ml-2">
+                  Enter correct email address
+                </span>
+              )}
             </div>
             <div className="flex flex-col gap-2">
               <label
@@ -73,8 +137,15 @@ const Login = () => {
                 placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
+                className={`bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none ${
+                  error.password ? "border-red-600" : "border-gray-100"
+                }`}
               />
+              {error.password && (
+                <span className="text-red-600 text-xs ml-2">
+                  Enter correct password
+                </span>
+              )}
             </div>
           </div>
 

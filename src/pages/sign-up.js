@@ -47,7 +47,7 @@ const SignUp = () => {
 
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
-      
+
       setError({});
       navigate("/");
     } catch (error) {
@@ -74,17 +74,27 @@ const SignUp = () => {
       </Helmet>
 
       <div className="w-[90%] max-w-[440px] py-10 sm:py-12 px-5 sm:px-12 sm:bg-white rounded-2xl sm:shadow-2xl sm:shadow-gray-200">
-        <h2 className="text-3xl font-semibold">Sign Up</h2>
-
-          <button className="flex justify-center items-center gap-3 w-full font-medium text-gray-500 py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all">
-            <div className="w-5">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+        <Link to="/">
+          <button className="flex items-center gap-2 font-medium text-sm mb-4">
+            <div className="w-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z" />
               </svg>
             </div>
-            <span className="text-sm">Sign Up with Google</span>
+            <span>Back</span>
           </button>
+        </Link>
 
+        <h2 className="text-3xl font-semibold">Sign Up</h2>
+
+        <button className="flex justify-center items-center gap-3 w-full font-medium text-gray-500 py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all">
+          <div className="w-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+              <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+            </svg>
+          </div>
+          <span className="text-sm">Sign Up with Google</span>
+        </button>
 
         <span className="block text-center text-gray-400 my-6">
           Or, sign up with

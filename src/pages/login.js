@@ -5,11 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  console.log("name:", name, " ", "password:", password);
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center sm:p-10">
@@ -46,18 +44,18 @@ const Login = () => {
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-2">
               <label
-                htmlFor="name"
+                htmlFor="email"
                 className="text-sm text-gray-600 font-medium pl-1"
               >
-                Username or Email
+                Email
               </label>
               <input
                 type="text"
-                name="name"
-                id="name"
-                placeholder="username or email address"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="email"
+                id="email"
+                placeholder="email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-gray-100 rounded-xl py-3 px-4 text-sm w-full border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none"
               />
             </div>

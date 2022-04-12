@@ -14,7 +14,7 @@ const Header = ({ activeLink }) => {
 
       <button
         aria-label="menu-toggle-btn"
-        className="p-1 flex lg:hidden flex-col gap-[5.5px] w-8 h-7"
+        className="lg:hidden flex flex-col gap-[5.5px] w-8 h-7 p-1"
         onClick={() => {
           setMenuVisible(!menuVisible);
         }}
@@ -25,7 +25,7 @@ const Header = ({ activeLink }) => {
       </button>
 
       <nav
-        className={`absolute lg:static top-20 right-5 left-5 sm:left-auto sm:w-[360px] lg:w-full flex flex-col lg:flex-row lg:justify-between items-center py-6 px-5 lg:p-0 bg-[#3a3053] lg:bg-transparent text-white lg:text-black font-bold rounded-xl transition-all lg:scale-100 lg:translate-x-0 lg:translate-y-0
+        className={`absolute lg:static top-20 right-5 left-5 sm:left-auto flex flex-col lg:flex-row lg:justify-between items-center sm:w-[360px] lg:w-full text-white lg:text-black font-bold py-6 px-5 lg:p-0 bg-[#3a3053] lg:bg-transparent rounded-xl lg:scale-100 lg:translate-x-0 lg:translate-y-0 transition-all
       ${
         menuVisible
           ? "scale-100 translate-x-0 translate-y-0"
@@ -51,14 +51,14 @@ const Header = ({ activeLink }) => {
           </Link>
         </ul>
 
-        <div className="flex flex-col lg:flex-row items-center gap-3 w-full lg:w-auto mt-4 lg:mt-0 pt-3 lg:pt-0 border-t border-solid lg:border-none border-[#8f78c9]">
+        <div className="flex flex-col lg:flex-row items-center gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t border-solid lg:border-none border-[#8f78c9] mt-4 lg:mt-0">
           <Link to="/login">
-            <button className="py-2.5 px-8 font-bold lg:text-gray-400 lg:hover:text-black transition-all">
+            <button className="font-bold lg:text-gray-400 lg:hover:text-black py-2.5 px-8 transition-all">
               Login
             </button>
           </Link>
           <Link to="/sign-up">
-            <button className="py-2.5 px-8 text-white font-bold bg-[#2bd1cf] lg:hover:bg-opacity-30 rounded-full transition-all">
+            <button className="text-white font-bold py-2.5 px-8 bg-[#2bd1cf] lg:hover:bg-opacity-30 rounded-full transition-all">
               Sign Up
             </button>
           </Link>

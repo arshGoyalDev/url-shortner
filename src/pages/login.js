@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-import { auth } from "../firebase";
-import { authGoogle } from "../firebase/googleAuth";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth, authGoogle } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");

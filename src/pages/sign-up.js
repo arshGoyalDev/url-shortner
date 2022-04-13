@@ -4,8 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-import { auth } from "../firebase/index";
-import { authGoogle } from "../firebase/googleAuth";
+import { auth, authGoogle } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {

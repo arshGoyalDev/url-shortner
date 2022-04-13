@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import { auth } from "../firebase";
+import { authGoogle } from "../firebase/googleAuth";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const Login = () => {
@@ -58,14 +59,6 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    const logout = async () => {
-      await signOut(auth);
-    };
-
-    logout();
-  }, []);
-
   return (
     <div className="flex items-center justify-center w-full min-h-screen sm:p-10">
       <Helmet>
@@ -86,7 +79,15 @@ const Login = () => {
 
         <h2 className="text-3xl font-semibold">Login</h2>
 
-        <button className="flex justify-center items-center gap-2 w-full text-gray-500 font-medium py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all">
+        <button
+          className="flex justify-center items-center gap-2 w-full text-gray-500 font-medium py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
+          onClick={async () => {
+            const res = await authGoogle();
+            if (res) {
+              navigate("/app");
+            }
+          }}
+        >
           <div className="w-5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
               <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />

@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-import { auth, authGoogle } from "../firebase";
+import { auth, authGoogle, database } from "../firebase";
+import { doc, setDoc, onSnapshot } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { data } from "autoprefixer";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -47,6 +49,27 @@ const SignUp = () => {
 
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
+
+      // addDoc(colRef, {
+      // title: addForm.title.value,
+      // author: addForm.author.value,
+      // createdAt: serverTimestamp(),
+      // }).then(() => {
+      // addForm.reset();
+      // });
+
+      await setDoc(doc(database, "users", user.user.uid), {
+        signedIn: true,
+        username: username,
+        email: email,
+        id: user.user.uid,
+      });
+
+      const docRef = doc(database, "users", user.user.uid);
+
+      onSnapshot(docRef, (doc) => {
+        console.log({ ...doc.data(), id: user.user.uid });
+      });
 
       setError({});
       navigate("/app");

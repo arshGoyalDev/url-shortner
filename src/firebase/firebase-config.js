@@ -19,6 +19,5 @@ const auth = getAuth(app);
 
 // database
 const database = getFirestore();
-const colRef = collection(database, "users");
 
-export { app, auth, colRef };
+export { app, auth, database };

@@ -1,2 +1,2 @@
-export { app, auth, colRef } from "./firebase-config";
+export { app, auth, database } from "./firebase-config";
 export { authGoogle } from "./googleAuth";

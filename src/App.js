@@ -17,6 +17,8 @@ const App = () => {
         fetchDetails(user.uid);
       }
     });
+
+    // eslint-disable-next-line
   }, []);
 
   return (

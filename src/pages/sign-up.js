@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-
+import { useContext, useState } from "react";
 import UserContext from "../UserContext";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -7,11 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import { auth, authGoogle } from "../firebase";
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { userDetails, addUser }= useContext(UserContext);
+  const { addUser }= useContext(UserContext);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -51,7 +50,6 @@ const SignUp = () => {
 
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
-
       addUser({
         username: username,
         email: email,
@@ -59,7 +57,10 @@ const SignUp = () => {
       });
 
       setError({});
-      // navigate("/app");
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      navigate("/app");
     } catch (error) {
       if (error.message.toLowerCase().includes("email")) {
         setError({
@@ -100,7 +101,7 @@ const SignUp = () => {
         <button
           className="flex justify-center items-center gap-3 w-full font-medium text-gray-500 py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
           onClick={async () => {
-            const res = await authGoogle();
+            const res = await authGoogle("createUser");
             if (res) {
               navigate("/app");
             }

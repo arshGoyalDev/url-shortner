@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../UserContext";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import { auth, authGoogle } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const { fetchDetails } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
@@ -38,7 +40,7 @@ const Login = () => {
 
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-
+      await fetchDetails(user.user.uid);
       setError({});
       navigate("/");
     } catch (error) {

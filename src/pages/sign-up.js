@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import UserContext from "../UserContext";
 
@@ -6,19 +6,17 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-import { auth, authGoogle, database } from "../firebase";
-import { doc, setDoc, onSnapshot } from "firebase/firestore";
+import { auth, authGoogle } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const { userDetails, addUser }= useContext(UserContext);
-  // console.log();
-  addUser();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
-  const navigate = useNavigate();
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -54,29 +52,14 @@ const SignUp = () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
 
-      // addDoc(colRef, {
-      // title: addForm.title.value,
-      // author: addForm.author.value,
-      // createdAt: serverTimestamp(),
-      // }).then(() => {
-      // addForm.reset();
-      // });
-
-      await setDoc(doc(database, "users", user.user.uid), {
-        signedIn: true,
+      addUser({
         username: username,
         email: email,
-        id: user.user.uid,
-      });
-
-      const docRef = doc(database, "users", user.user.uid);
-
-      onSnapshot(docRef, (doc) => {
-        console.log({ ...doc.data(), id: user.user.uid });
+        uid: user.user.uid
       });
 
       setError({});
-      navigate("/app");
+      // navigate("/app");
     } catch (error) {
       if (error.message.toLowerCase().includes("email")) {
         setError({

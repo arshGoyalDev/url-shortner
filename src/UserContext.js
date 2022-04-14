@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { database } from "./firebase";
+import { auth, database } from "./firebase";
 import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
 
 const UserContext = createContext();
@@ -13,6 +13,7 @@ const UserProvider = ({ children }) => {
     const getUser = await getDoc(docRef);
   
     setUserDetails(getUser.data());
+    console.log(getUser.data());
   }
 
   const addUser = async (user) => {

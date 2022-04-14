@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import UserContext from "../UserContext";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,9 +9,11 @@ import { Helmet } from "react-helmet-async";
 import { auth, authGoogle, database } from "../firebase";
 import { doc, setDoc, onSnapshot } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { data } from "autoprefixer";
 
 const SignUp = () => {
+  const { userDetails, addUser }= useContext(UserContext);
+  // console.log();
+  addUser();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

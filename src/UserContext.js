@@ -11,7 +11,9 @@ const UserProvider = ({ children }) => {
   const fetchDetails = async  (uid) => {
     const docRef = doc(database, "users", uid);
     const getUser = await getDoc(docRef);
+    
     setUserDetails(getUser.data());
+    console.log(getUser.data());
   }
 
   const addUser = async (user) => {
@@ -21,6 +23,8 @@ const UserProvider = ({ children }) => {
       email: user.email,
       uid: user.uid,
     });
+
+    fetchDetails(user.uid);
   };
 
   return (

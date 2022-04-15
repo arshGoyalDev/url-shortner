@@ -9,7 +9,6 @@ import { auth, authGoogle } from "../firebase";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 const SignUp = () => {
-  signOut(auth);
   const navigate = useNavigate();
   const { addUser }= useContext(UserContext);
 
@@ -102,9 +101,15 @@ const SignUp = () => {
         <button
           className="flex justify-center items-center gap-3 w-full font-medium text-gray-500 py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
           onClick={async () => {
-            const res = await authGoogle("createUser");
-            console.log(res);
-            // if (res) {
+            const user = await authGoogle("createUser");
+            // console.log(user);
+            addUser({
+              username: user.displayName,
+              email: user.email,
+              uid: user.uid
+            });
+      
+            // if (user) {
               // navigate("/app");
             // }
           }}

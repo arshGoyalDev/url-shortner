@@ -40,9 +40,11 @@ const Login = () => {
 
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      await fetchDetails(user.user.uid);
+
+      setEmail("");
+      setPassword("");
       setError({});
-      navigate("/");
+      navigate("/app");
     } catch (error) {
       if (error.message.toLowerCase().includes("email")) {
         setError({

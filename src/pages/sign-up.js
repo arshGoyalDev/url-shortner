@@ -8,6 +8,8 @@ import { Helmet } from "react-helmet-async";
 import { auth, googleAuth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
+import FormInput from "../components/FormInput";
+
 const SignUp = () => {
   const navigate = useNavigate();
   const { addUser }= useContext(UserContext);
@@ -128,8 +130,8 @@ const SignUp = () => {
 
         <form onSubmit={createUser}>
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-2">
-              <label
+            {/* <div className="flex flex-col gap-2"> */}
+              {/* <label
                 htmlFor="email"
                 className="text-sm text-gray-600 font-medium pl-1"
               >
@@ -151,8 +153,16 @@ const SignUp = () => {
                   Enter a valid username
                 </span>
               )}
-            </div>
-            <div className="flex flex-col gap-2">
+            </div> */}
+            <FormInput
+              placeholder={"Username"}
+              value={username}
+              setValue={setUsername}
+              error={error.username}
+              errorMessage={"Enter a username"}
+            />
+
+            {/* <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
                 className="text-sm text-gray-600 font-medium pl-1"
@@ -198,8 +208,23 @@ const SignUp = () => {
                 <span className="text-red-600 text-xs ml-2">
                   Password length must be at least 6 character
                 </span>
-              )}
-            </div>
+              )} */}
+                          <FormInput
+              placeholder={"Email Address"}
+              value={email}
+              setValue={setEmail}
+              error={error.email}
+              errorMessage={"Enter a valid email address"}
+            />
+            <FormInput
+              placeholder={"Password"}
+              value={password}
+              setValue={setPassword}
+              error={error.password}
+              errorMessage={"Password length must be at least 6 character"}
+            />
+
+            {/* </div> */}
           </div>
 
           <button className="w-full text-white font-medium py-3 px-8 bg-[#2bd1cf] lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">

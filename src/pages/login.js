@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 import { auth, googleAuth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
 import FormInput from "../components/FormInput";
 
 const Login = () => {

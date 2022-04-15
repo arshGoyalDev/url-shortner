@@ -19,7 +19,6 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
         <input
           type="text"
           name={value}
-          id={value}
           placeholder={placeholder}
           value={value}
           onChange={(e) => setValue(e.target.value)}
@@ -32,7 +31,6 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
           <input
             type={inputType}
             name={value}
-            id="password"
             placeholder={placeholder}
             value={value}
             onChange={(e) => setValue(e.target.value)}

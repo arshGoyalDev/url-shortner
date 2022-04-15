@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 import { auth, googleAuth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import FormInput from "../components/FormInput";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,6 @@ const Login = () => {
         email: true,
         password: false,
       });
-
       return;
     } else if (password === "") {
       setError({
@@ -32,7 +32,6 @@ const Login = () => {
         email: false,
         password: true,
       });
-
       return;
     }
 
@@ -103,54 +102,20 @@ const Login = () => {
 
         <form onSubmit={login}>
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="email"
-                className="text-sm text-gray-600 font-medium pl-1"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                placeholder="email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-                  error.email ? "border-red-600" : "border-gray-100"
-                }`}
-              />
-              {error.email && (
-                <span className="text-red-600 text-xs ml-2">
-                  Enter correct email address
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="password"
-                className="text-sm text-gray-600 font-medium pl-1"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-                  error.password ? "border-red-600" : "border-gray-100"
-                }`}
-              />
-              {error.password && (
-                <span className="text-red-600 text-xs ml-2">
-                  Enter correct password
-                </span>
-              )}
-            </div>
+            <FormInput
+              placeholder={"Email Address"}
+              value={email}
+              setValue={setEmail}
+              error={error.email}
+              errorMessage={"Enter correct email address"}
+            />
+            <FormInput
+              placeholder={"Password"}
+              value={password}
+              setValue={setPassword}
+              error={error.password}
+              errorMessage={"Enter correct password"}
+            />
           </div>
 
           <button className="w-full text-white font-medium py-3 px-8 bg-[#2bd1cf] lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">

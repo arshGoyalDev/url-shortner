@@ -12,7 +12,7 @@ import FormInput from "../components/FormInput";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { addUser }= useContext(UserContext);
+  const { addUser } = useContext(UserContext);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -55,13 +55,13 @@ const SignUp = () => {
       addUser({
         username: username,
         email: email,
-        uid: user.user.uid
+        uid: user.user.uid,
       });
 
       setError({});
-      setUsername('');
-      setEmail('');
-      setPassword('');
+      setUsername("");
+      setEmail("");
+      setPassword("");
       navigate("/app");
     } catch (error) {
       if (error.message.toLowerCase().includes("email")) {
@@ -108,11 +108,11 @@ const SignUp = () => {
             addUser({
               username: user.displayName,
               email: user.email,
-              uid: user.uid
+              uid: user.uid,
             });
-      
+
             // if (user) {
-              // navigate("/app");
+            // navigate("/app");
             // }
           }}
         >
@@ -131,7 +131,7 @@ const SignUp = () => {
         <form onSubmit={createUser}>
           <div className="flex flex-col gap-3">
             {/* <div className="flex flex-col gap-2"> */}
-              {/* <label
+            {/* <label
                 htmlFor="email"
                 className="text-sm text-gray-600 font-medium pl-1"
               >
@@ -209,7 +209,7 @@ const SignUp = () => {
                   Password length must be at least 6 character
                 </span>
               )} */}
-                          <FormInput
+            <FormInput
               placeholder={"Email Address"}
               value={email}
               setValue={setEmail}

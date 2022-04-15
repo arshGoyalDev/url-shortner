@@ -8,13 +8,13 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState([]);
 
-  const fetchDetails = async  (uid) => {
+  const fetchDetails = async (uid) => {
     const docRef = doc(database, "users", uid);
     const getUser = await getDoc(docRef);
-    
+
     setUserDetails(getUser.data());
     console.log(getUser.data());
-  }
+  };
 
   const addUser = async (user) => {
     await setDoc(doc(database, "users", user.uid), {

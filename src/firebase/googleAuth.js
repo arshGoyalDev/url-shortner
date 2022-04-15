@@ -1,7 +1,7 @@
 import { auth } from "./";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-const authGoogle = async (type) => {
+const googleAuth = async (type) => {
   const provider = new GoogleAuthProvider();
   try {
     const user = await signInWithPopup(auth, provider);
@@ -18,4 +18,4 @@ const authGoogle = async (type) => {
   }
 };
 
-export { authGoogle };
+export { googleAuth };

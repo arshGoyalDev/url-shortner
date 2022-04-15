@@ -1,15 +1,13 @@
-import { useContext, useState } from "react";
-import UserContext from "../UserContext";
+import {  useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-import { auth, authGoogle } from "../firebase";
+import { auth, googleAuth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
-  const { fetchDetails } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
@@ -39,7 +37,7 @@ const Login = () => {
     }
 
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
 
       setEmail("");
       setPassword("");
@@ -85,7 +83,7 @@ const Login = () => {
         <button
           className="flex justify-center items-center gap-2 w-full text-gray-500 font-medium py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
           onClick={async () => {
-            const res = await authGoogle();
+            const res = await googleAuth();
             if (res) {
               navigate("/app");
             }

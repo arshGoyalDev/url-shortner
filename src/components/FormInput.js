@@ -38,11 +38,11 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
               error ? "border-secondary-red" : "border-gray-100"
             }`}
           />
-          <div className="absolute top-3 right-4 z-50 cursor-pointer" onClick={togglePassword}>
+          <div className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer" onClick={togglePassword}>
             {inputType === "password" ? (
-              <img src={eye} alt="eye icon by iconsax" />
+              <img src={eye} alt="eye icon by flaticon uicons" />
             ) : (
-              <img src={eyeSlash} alt="eye-slash icon by iconsax" />
+              <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
             )}
           </div>
         </div>

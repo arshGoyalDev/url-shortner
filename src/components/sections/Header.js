@@ -86,7 +86,7 @@ const Header = ({ activeLink }) => {
                 ) : (
                   <img
                     src={user}
-                    alt="user icon bg iconsax"
+                    alt="user icon bg flaticon uicons"
                     className="w-4 h-4"
                   />
                 )}
@@ -105,8 +105,8 @@ const Header = ({ activeLink }) => {
                 <button className="flex items-center gap-3 lg:w-full text-left font-semibold lg:text-neutral-darkBlue lg:py-5 lg:px-8 transition-all">
                   <img
                     src={home}
-                    alt="home icon by iconsax"
-                    className="hidden lg:inline-block"
+                    alt="home icon by flaticon uicons"
+                    className="hidden lg:inline-block w-5"
                   />
                   Dashboard
                 </button>
@@ -117,8 +117,8 @@ const Header = ({ activeLink }) => {
               >
                 <img
                   src={logout}
-                  alt="logout icon by iconsax"
-                  className="hidden lg:inline-block"
+                  alt="logout icon by flaticon uicons"
+                  className="hidden lg:inline-block w-5"
                 />
                 Log Out
               </button>

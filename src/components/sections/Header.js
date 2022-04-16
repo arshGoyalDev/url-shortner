@@ -73,10 +73,13 @@ const Header = ({ activeLink }) => {
           </div>
         ) : (
           <div className="lg:relative w-full lg:w-auto pt-7 pb-3 lg:py-0 border-t border-solid lg:border-none border-[#8f78c9] mt-4 lg:mt-0">
-            <button 
-            onClick={() => {setUserMenuVisible(!userMenuVisible)}}
-            className="hidden lg:flex items-center gap-3 py-2 px-4 hover:bg-gray-200 hover:bg-opacity-50 rounded-lg transition-all">
-              <span>{userDetails.username}</span>
+            <button
+              onClick={() => {
+                setUserMenuVisible(!userMenuVisible);
+              }}
+              className="hidden lg:flex items-center gap-3 py-2 px-4 hover:bg-gray-200 hover:bg-opacity-50 rounded-lg transition-all"
+            >
+              <span className="font-semibold">{userDetails.username}</span>
               <div className="grid place-items-center w-9 h-9 border-2 border-solid border-neutral-darkViolet rounded-full">
                 {userDetails.profilePic ? (
                   ""

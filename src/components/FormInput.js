@@ -12,7 +12,7 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="email" className="text-sm text-gray-600 font-medium pl-1">
+      <label htmlFor="email" className="text-sm text-neutral-grayishViolet font-medium pl-1">
         {placeholder}
       </label>
       {placeholder !== "Password" ? (
@@ -23,7 +23,7 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-            error ? "border-red-600" : "border-gray-100"
+            error ? "border-secondary-red" : "border-gray-100"
           }`}
         />
       ) : (
@@ -35,10 +35,10 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-              error ? "border-red-600" : "border-gray-100"
+              error ? "border-secondary-red" : "border-gray-100"
             }`}
           />
-          <div className="absolute top-3 right-4 z-50" onClick={togglePassword}>
+          <div className="absolute top-3 right-4 z-50 cursor-pointer" onClick={togglePassword}>
             {inputType === "password" ? (
               <img src={eye} alt="eye icon by iconsax" />
             ) : (

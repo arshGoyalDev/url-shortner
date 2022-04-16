@@ -12,7 +12,7 @@ import FormInput from "../components/FormInput";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const login = async (e) => {
@@ -21,18 +21,10 @@ const Login = () => {
     const correctEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if (!email.match(correctEmail) || email === "") {
-      setError({
-        username: false,
-        email: true,
-        password: false,
-      });
+      setError("email-valid");
       return;
-    } else if (password === "") {
-      setError({
-        username: false,
-        email: false,
-        password: true,
-      });
+    } else if (password.length < 6) {
+      setError("password");
       return;
     }
 
@@ -41,21 +33,13 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
-      setError({});
-      navigate("/app");
+      setError("");
+      navigate("/app/dashboard");
     } catch (error) {
-      if (error.message.toLowerCase().includes("email")) {
-        setError({
-          username: false,
-          email: true,
-          password: false,
-        });
-      } else if (error.message.toLowerCase().includes("password")) {
-        setError({
-          username: false,
-          email: false,
-          password: true,
-        });
+      if (error.message.toLowerCase().includes("auth/user-not-found")) {
+        setError("email-not-found");
+      } else if (error.message.toLowerCase().includes("auth/wrong-password")) {
+        setError("password");
       }
     }
   };
@@ -66,7 +50,7 @@ const Login = () => {
         <title>Login - Shortly</title>
       </Helmet>
 
-      <div className="w-[90%] max-w-[440px] py-10 sm:py-12 px-5 sm:px-12 sm:bg-white sm:shadow-2xl sm:shadow-gray-200 sm:rounded-2xl">
+      <div className="w-[90%] max-w-[440px] py-10 sm:py-12 px-5 sm:px-12 sm:bg-white sm:shadow-2xl sm:shadow-neutral-gray sm:rounded-2xl">
         <Link to="/">
           <button className="flex items-center gap-2 font-medium text-sm mb-4">
             <div className="w-2">
@@ -81,11 +65,11 @@ const Login = () => {
         <h2 className="text-3xl font-semibold">Login</h2>
 
         <button
-          className="flex justify-center items-center gap-2 w-full text-gray-500 font-medium py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
+          className="flex justify-center items-center gap-2 w-full text-neutral-grayishViolet font-medium py-3 px-8 border-2 border-solid border-gray-200 mt-7 rounded-xl transition-all"
           onClick={async () => {
             const res = await googleAuth();
             if (res) {
-              navigate("/app");
+              navigate("/app/dashboard");
             }
           }}
         >
@@ -97,7 +81,7 @@ const Login = () => {
           <span className="text-sm">Login with Google</span>
         </button>
 
-        <span className="block text-center text-gray-400 my-6">
+        <span className="block text-center text-neutral-gray my-6">
           Or, login with
         </span>
 
@@ -107,24 +91,28 @@ const Login = () => {
               placeholder={"Email Address"}
               value={email}
               setValue={setEmail}
-              error={error.email}
-              errorMessage={"Enter correct email address"}
+              error={error.includes("email") ?? false}
+              errorMessage={
+                error === "email-valid"
+                  ? "Enter correct email address"
+                  : "No account found with given email"
+              }
             />
             <FormInput
               placeholder={"Password"}
               value={password}
               setValue={setPassword}
-              error={error.password}
+              error={error === "password" ?? false}
               errorMessage={"Enter correct password"}
             />
           </div>
 
-          <button className="w-full text-white font-medium py-3 px-8 bg-[#2bd1cf] lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">
+          <button className="w-full text-white font-medium py-3 px-8 bg-primary-cyan lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">
             Login
           </button>
         </form>
 
-        <p className="text-gray-500 text-center mt-4 text-sm">
+        <p className="text-neutral-grayishViolet text-center mt-4 text-sm">
           Don't have an account?{" "}
           <Link to="/sign-up" className="text-black font-semibold">
             Sign Up

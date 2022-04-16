@@ -17,7 +17,7 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -25,28 +25,13 @@ const SignUp = () => {
     const correctEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if (username === "") {
-      setError({
-        username: true,
-        email: false,
-        password: false,
-      });
-
+      setError("username");
       return;
     } else if (!email.match(correctEmail) || email === "") {
-      setError({
-        username: false,
-        email: true,
-        password: false,
-      });
-
+      setError("email-valid");
       return;
-    } else if (password === "") {
-      setError({
-        username: false,
-        email: false,
-        password: true,
-      });
-
+    } else if (password.length < 6) {
+      setError("password");
       return;
     }
 
@@ -58,24 +43,14 @@ const SignUp = () => {
         uid: user.user.uid,
       });
 
-      setError({});
+      setError("");
       setUsername("");
       setEmail("");
       setPassword("");
-      navigate("/app");
+      navigate("/app/dashboard");
     } catch (error) {
-      if (error.message.toLowerCase().includes("email")) {
-        setError({
-          username: false,
-          email: true,
-          password: false,
-        });
-      } else if (error.message.toLowerCase().includes("password")) {
-        setError({
-          username: false,
-          email: false,
-          password: true,
-        });
+      if (error.message.toLowerCase().includes("auth/email-already-in-use")) {
+        setError("email-exits");
       }
     }
   };
@@ -101,19 +76,18 @@ const SignUp = () => {
         <h2 className="text-3xl font-semibold">Sign Up</h2>
 
         <button
-          className="flex justify-center items-center gap-3 w-full font-medium text-gray-500 py-3 px-8 border-2 border-solid border-gray-300 mt-7 rounded-xl transition-all"
+          className="flex justify-center items-center gap-2 w-full text-neutral-grayishViolet font-medium py-3 px-8 border-2 border-solid border-gray-200 mt-7 rounded-xl transition-all"
           onClick={async () => {
             const user = await googleAuth("createUser");
-            // console.log(user);
             addUser({
               username: user.displayName,
               email: user.email,
               uid: user.uid,
             });
 
-            // if (user) {
-            // navigate("/app");
-            // }
+            if (user) {
+              navigate("/app/dashboard");
+            }
           }}
         >
           <div className="w-5">
@@ -124,115 +98,45 @@ const SignUp = () => {
           <span className="text-sm">Sign Up with Google</span>
         </button>
 
-        <span className="block text-center text-gray-400 my-6">
+        <span className="block text-center text-neutral-gray my-6">
           Or, sign up with
         </span>
 
         <form onSubmit={createUser}>
           <div className="flex flex-col gap-3">
-            {/* <div className="flex flex-col gap-2"> */}
-            {/* <label
-                htmlFor="email"
-                className="text-sm text-gray-600 font-medium pl-1"
-              >
-                Username
-              </label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-                  error.username ? "border-red-600" : "border-gray-100"
-                }`}
-              />
-              {error.username && (
-                <span className="text-red-600 text-xs ml-2">
-                  Enter a valid username
-                </span>
-              )}
-            </div> */}
             <FormInput
               placeholder={"Username"}
               value={username}
               setValue={setUsername}
-              error={error.username}
+              error={error === "username" ?? false}
               errorMessage={"Enter a username"}
             />
-
-            {/* <div className="flex flex-col gap-2">
-              <label
-                htmlFor="email"
-                className="text-sm text-gray-600 font-medium pl-1"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                placeholder="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-                  error.email ? "border-red-600" : "border-gray-100"
-                }`}
-              />
-              {error.email && (
-                <span className="text-red-600 text-xs ml-2">
-                  Enter a valid email address
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="password"
-                className="text-sm text-gray-600 font-medium pl-1"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-                  error.password ? "border-red-600" : "border-gray-100"
-                }`}
-              />
-              {error.password && (
-                <span className="text-red-600 text-xs ml-2">
-                  Password length must be at least 6 character
-                </span>
-              )} */}
             <FormInput
               placeholder={"Email Address"}
               value={email}
               setValue={setEmail}
-              error={error.email}
-              errorMessage={"Enter a valid email address"}
+              error={error.includes("email") ?? false}
+              errorMessage={
+                error === "email-valid"
+                  ? "Enter a valid email address"
+                  : "Email address already exits"
+              }
             />
             <FormInput
               placeholder={"Password"}
               value={password}
               setValue={setPassword}
-              error={error.password}
+              error={error === "password" ?? false}
               errorMessage={"Password length must be at least 6 character"}
             />
-
-            {/* </div> */}
           </div>
 
-          <button className="w-full text-white font-medium py-3 px-8 bg-[#2bd1cf] lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">
+          <button className="w-full text-white font-medium py-3 px-8 bg-primary-cyan lg:hover:bg-opacity-60 mt-5 rounded-xl transition-all">
             Create Account
           </button>
         </form>
 
-        <p className="text-gray-500 text-center text-sm mt-4">
+        <p className="text-neutral-grayishViolet text-center text-sm mt-4">
           Already have an account?{" "}
           <Link to="/login" className="text-black font-semibold">
             Login

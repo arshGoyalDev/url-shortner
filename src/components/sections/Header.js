@@ -9,7 +9,7 @@ import logout from "../../assets/images/logout.svg";
 import UserContext from "../../UserContext";
 
 const Header = ({ activeLink }) => {
-  const { userDetails } = useContext(UserContext);
+  const { userDetails, logoutUser } = useContext(UserContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
 
@@ -80,7 +80,7 @@ const Header = ({ activeLink }) => {
               className="hidden lg:flex items-center gap-3 py-2 px-4 hover:bg-gray-200 hover:bg-opacity-50 rounded-lg transition-all"
             >
               <span className="font-semibold">{userDetails.username}</span>
-              <div className="grid place-items-center w-9 h-9 border-2 border-solid border-neutral-darkViolet rounded-full">
+              <div className="grid place-items-center w-9 h-9 border border-solid border-neutral-darkViolet rounded-full">
                 {userDetails.profilePic ? (
                   ""
                 ) : (
@@ -94,22 +94,27 @@ const Header = ({ activeLink }) => {
             </button>
 
             <div
-              className={`lg:absolute top-[60px] -right-5 flex flex-col items-center lg:items-start gap-5 lg:gap-0 w-full lg:w-52 bg-white divide-y-2 rounded-xl shadow-xl transition-all
+              className={`lg:absolute top-[60px] -right-5 flex flex-col items-center lg:items-start gap-5 lg:gap-0 w-full lg:w-52 lg:bg-white lg:divide-y-2 rounded-xl lg:shadow-xl transition-all
                 ${
                   userMenuVisible
-                    ? "scale-100 translate-x-0 translate-y-0"
-                    : "scale-0 translate-x-10 -translate-y-24"
+                    ? "lg:scale-100 lg:translate-x-0 lg:translate-y-0"
+                    : "lg:scale-0 lg:translate-x-10 lg:-translate-y-24"
                 }`}
             >
-              <button className="flex items-center gap-3 lg:w-full text-left font-semibold lg:text-neutral-darkBlue lg:py-5 lg:px-8 transition-all">
-                <img
-                  src={home}
-                  alt="home icon by iconsax"
-                  className="hidden lg:inline-block"
-                />
-                Dashboard
-              </button>
-              <button className="flex items-center gap-3 lg:w-full text-left font-semibold lg:text-secondary-red lg:py-5 lg:px-8 transition-all">
+              <Link to="/app/dashboard">
+                <button className="flex items-center gap-3 lg:w-full text-left font-semibold lg:text-neutral-darkBlue lg:py-5 lg:px-8 transition-all">
+                  <img
+                    src={home}
+                    alt="home icon by iconsax"
+                    className="hidden lg:inline-block"
+                  />
+                  Dashboard
+                </button>
+              </Link>
+              <button
+                onClick={logoutUser}
+                className="flex items-center gap-3 lg:w-full text-left font-semibold lg:text-secondary-red lg:py-5 lg:px-8 transition-all"
+              >
                 <img
                   src={logout}
                   alt="logout icon by iconsax"

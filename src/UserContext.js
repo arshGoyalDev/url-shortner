@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
 
-import { database } from "./firebase";
+import { auth, database } from "./firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { signOut } from "firebase/auth";
 
 const UserContext = createContext();
 
@@ -27,8 +28,13 @@ const UserProvider = ({ children }) => {
     fetchDetails(user.uid);
   };
 
+  const logoutUser = () => {
+    signOut(auth);
+    setUserDetails(null);
+  }
+
   return (
-    <UserContext.Provider value={{ userDetails, addUser, fetchDetails }}>
+    <UserContext.Provider value={{ userDetails, addUser, fetchDetails, logoutUser }}>
       {children}
     </UserContext.Provider>
   );

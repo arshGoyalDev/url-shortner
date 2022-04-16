@@ -23,7 +23,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 - Challenge by Frontend Mentor
 - [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G).
 
-
 ### Links
 
 - Solution URL: Not completed yet
@@ -38,7 +37,7 @@ Make links better, shorter, and see better-detailed insights for the link only w
 
 ### What I learned
 
-It's my first time using firebase so I have learnt a lot while doing the challenge
+It's my first time using firebase so I have learnt important things about auth, firestore & storage while doing the challenge
 
 ### Continued development
 

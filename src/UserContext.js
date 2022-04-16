@@ -6,7 +6,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [userDetails, setUserDetails] = useState([]);
+  const [userDetails, setUserDetails] = useState(null);
 
   const fetchDetails = async (uid) => {
     const docRef = doc(database, "users", uid);

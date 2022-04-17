@@ -49,17 +49,19 @@ const FormInput = ({
                 error ? "border-secondary-red" : "border-gray-100"
               }`}
             />
-            <label
-              htmlFor={id}
-              className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer"
-              onClick={togglePassword}
-            >
-              {inputType === "password" ? (
-                <img src={eye} alt="eye icon by flaticon uicons" />
-              ) : (
-                <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
-              )}
-            </label>
+            <div className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer">
+              <label
+                htmlFor={id}
+                onClick={togglePassword}
+                className="cursor-pointer"
+              >
+                {inputType === "password" ? (
+                  <img src={eye} alt="eye icon by flaticon uicons" />
+                ) : (
+                  <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
+                )}
+              </label>
+            </div>
           </>
         )}
         <label

@@ -3,7 +3,14 @@ import { useState } from "react";
 import eye from "../assets/images/eye.svg";
 import eyeSlash from "../assets/images/eye-slash.svg";
 
-const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
+const FormInput = ({
+  id,
+  placeholder,
+  value,
+  setValue,
+  error,
+  errorMessage,
+}) => {
   const [inputType, setInputType] = useState("password");
 
   const togglePassword = () => {
@@ -12,41 +19,59 @@ const FormInput = ({ placeholder, value, setValue, error, errorMessage }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="email" className="text-sm text-neutral-grayishViolet font-medium pl-1">
+      <label
+        htmlFor={id}
+        className="text-sm text-neutral-grayishViolet font-medium pl-1"
+      >
         {placeholder}
       </label>
-      {placeholder !== "Password" ? (
-        <input
-          type="text"
-          name={value}
-          placeholder={placeholder}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
-            error ? "border-secondary-red" : "border-gray-100"
-          }`}
-        />
-      ) : (
-        <div className="relative">
+      <div className="relative">
+        {placeholder !== "Password" ? (
           <input
-            type={inputType}
-            name={value}
-            placeholder={placeholder}
+            type="text"
+            id={id}
+            name={id}
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className={`w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+            className={`input w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
               error ? "border-secondary-red" : "border-gray-100"
             }`}
           />
-          <div className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer" onClick={togglePassword}>
-            {inputType === "password" ? (
-              <img src={eye} alt="eye icon by flaticon uicons" />
-            ) : (
-              <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
-            )}
-          </div>
-        </div>
-      )}
+        ) : (
+          <>
+            <input
+              type={inputType}
+              name={id}
+              id={id}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className={`input w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+                error ? "border-secondary-red" : "border-gray-100"
+              }`}
+            />
+            <label
+              htmlFor={id}
+              className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer"
+              onClick={togglePassword}
+            >
+              {inputType === "password" ? (
+                <img src={eye} alt="eye icon by flaticon uicons" />
+              ) : (
+                <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
+              )}
+            </label>
+          </>
+        )}
+        <label
+          htmlFor={id}
+          className={`placeholder absolute top-3.5 left-4 text-neutral-grayishViolet text-sm cursor-text transition-all duration-300 ${
+            value !== "" && "hide-placeholder"
+          }`}
+        >
+          {placeholder.toLowerCase()}
+        </label>
+      </div>
+
       {error && (
         <span className="text-red-600 text-xs ml-2">{errorMessage}</span>
       )}

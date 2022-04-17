@@ -10,7 +10,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import FormInput from "../components/FormInput";
 
 import google from "../assets/images/google.svg";
-import backArrow from '../assets/images/back-arrow.svg'
+import backArrow from "../assets/images/back-arrow.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -87,6 +87,7 @@ const Login = () => {
         <form onSubmit={login}>
           <div className="flex flex-col gap-3">
             <FormInput
+              id="email"
               placeholder={"Email Address"}
               value={email}
               setValue={setEmail}
@@ -98,6 +99,7 @@ const Login = () => {
               }
             />
             <FormInput
+              id="password"
               placeholder={"Password"}
               value={password}
               setValue={setPassword}

@@ -104,6 +104,7 @@ const SignUp = () => {
         <form onSubmit={createUser}>
           <div className="flex flex-col gap-3">
             <FormInput
+              id="username"
               placeholder={"Username"}
               value={username}
               setValue={setUsername}
@@ -111,17 +112,19 @@ const SignUp = () => {
               errorMessage={"Enter a username"}
             />
             <FormInput
-              placeholder={"Email Address"}
+              id="email"
+              placeholder={"Email address"}
               value={email}
               setValue={setEmail}
               error={error.includes("email") ?? false}
               errorMessage={
                 error === "email-valid"
-                  ? "Enter a valid email address"
+                  ? "Enter correct email address"
                   : "Email address already exits"
               }
             />
             <FormInput
+              id="password"
               placeholder={"Password"}
               value={password}
               setValue={setPassword}

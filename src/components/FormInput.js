@@ -2,6 +2,9 @@ import { useState } from "react";
 
 import eye from "../assets/images/eye.svg";
 import eyeSlash from "../assets/images/eye-slash.svg";
+import user from "../assets/images/user.svg";
+import email from "../assets/images/email.svg";
+import password from "../assets/images/password.svg";
 
 const FormInput = ({
   id,
@@ -17,15 +20,25 @@ const FormInput = ({
     inputType === "password" ? setInputType("text") : setInputType("password");
   };
 
+  const imgSrc = () => {
+    if (id === "username") return user;
+    if (id === "email") return email;
+    if (id === "password") return password;
+  };
+
   return (
     <div className="flex flex-col gap-2">
-      <label
-        htmlFor={id}
-        className="text-sm text-neutral-grayishViolet font-medium pl-1"
-      >
-        {placeholder}
-      </label>
       <div className="relative">
+        <label
+          htmlFor={id}
+          className="absolute z-50 top-1/2 left-0 -translate-y-1/2 w-12 h-5 grid place-items-center"
+        >
+          <img
+            src={imgSrc()}
+            alt={`${id} icon by flaticon uicons`}
+            className="w-4 h-4"
+          />
+        </label>
         {placeholder !== "Password" ? (
           <input
             type="text"
@@ -33,7 +46,7 @@ const FormInput = ({
             name={id}
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className={`input w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+            className={`input w-full text-sm py-3 pl-12 pr-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
               error ? "border-secondary-red" : "border-gray-100"
             }`}
           />
@@ -45,28 +58,27 @@ const FormInput = ({
               id={id}
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              className={`input w-full text-sm py-3 px-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+              className={`input w-full text-sm py-3 pl-12 pr-[54px] bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
                 error ? "border-secondary-red" : "border-gray-100"
               }`}
             />
-            <div className="absolute top-3 right-4 z-50 w-6 h-6 cursor-pointer">
+            <div className="absolute top-3 right-0 z-50 grid place-items-center w-[54px] h-6 cursor-pointer">
               <label
                 htmlFor={id}
                 onClick={togglePassword}
                 className="cursor-pointer"
               >
-                {inputType === "password" ? (
+                <div className={`relative w-5 show-password ${inputType === "text" && "slash"}`}>
                   <img src={eye} alt="eye icon by flaticon uicons" />
-                ) : (
-                  <img src={eyeSlash} alt="eye-slash icon by flaticon uicons" />
-                )}
+                  <span></span>
+                </div>
               </label>
             </div>
           </>
         )}
         <label
           htmlFor={id}
-          className={`placeholder absolute top-3.5 left-4 text-neutral-grayishViolet text-sm cursor-text transition-all duration-300 ${
+          className={`placeholder absolute top-3.5 left-12 text-neutral-grayishViolet text-sm cursor-text transition-all duration-300 ${
             value !== "" && "hide-placeholder"
           }`}
         >

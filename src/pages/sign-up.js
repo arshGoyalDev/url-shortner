@@ -102,7 +102,7 @@ const SignUp = () => {
         </span>
 
         <form onSubmit={createUser}>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <FormInput
               id="username"
               placeholder={"Username"}

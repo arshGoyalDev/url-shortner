@@ -85,7 +85,7 @@ const Login = () => {
         </span>
 
         <form onSubmit={login}>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <FormInput
               id="email"
               placeholder={"Email Address"}

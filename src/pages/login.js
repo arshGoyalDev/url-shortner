@@ -20,7 +20,6 @@ const Login = () => {
 
   const login = async (e) => {
     e.preventDefault();
-
     const correctEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if (!email.match(correctEmail) || email === "") {

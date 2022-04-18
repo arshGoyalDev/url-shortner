@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
+import UserContext from "../../UserContext";
+
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/logo.svg";
 import user from "../../assets/images/user.svg";
 import home from "../../assets/images/home.svg";
 import logout from "../../assets/images/logout.svg";
-
-import UserContext from "../../UserContext";
 
 const Header = ({ activeLink }) => {
   const { userDetails, logoutUser } = useContext(UserContext);

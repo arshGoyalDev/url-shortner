@@ -24,7 +24,6 @@ const SignUp = () => {
 
   const createUser = async (e) => {
     e.preventDefault();
-
     const correctEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if (username === "") {

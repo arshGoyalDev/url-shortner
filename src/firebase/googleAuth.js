@@ -6,11 +6,10 @@ const googleAuth = async (type) => {
   try {
     const user = await signInWithPopup(auth, provider);
 
-    if (type === 'createUser') {
+    if (type === "createUser") {
       return user.user;
     }
 
-    // console.log(user);
     return true;
   } catch (error) {
     console.log(error);

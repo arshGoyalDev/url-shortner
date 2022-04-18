@@ -31,10 +31,12 @@ const UserProvider = ({ children }) => {
   const logoutUser = () => {
     signOut(auth);
     setUserDetails(null);
-  }
+  };
 
   return (
-    <UserContext.Provider value={{ userDetails, addUser, fetchDetails, logoutUser }}>
+    <UserContext.Provider
+      value={{ userDetails, addUser, fetchDetails, logoutUser }}
+    >
       {children}
     </UserContext.Provider>
   );

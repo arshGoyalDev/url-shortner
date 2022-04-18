@@ -66,7 +66,7 @@ const SignUp = () => {
 
       <div className="w-[90%] max-w-[440px] py-10 sm:py-12 px-5 sm:px-12 sm:bg-white rounded-2xl sm:shadow-2xl sm:shadow-gray-200">
         <Link to="/">
-          <button className="flex items-center gap-2 font-medium text-sm mb-4">
+          <button className="flex items-center gap-2 hover:gap-3 font-medium text-sm mb-4 transition-all">
             <div className="w-4">
               <img src={backArrow} alt="back arrow icon by flaticon uicons" />
             </div>
@@ -77,7 +77,7 @@ const SignUp = () => {
         <h2 className="text-3xl font-semibold">Sign Up</h2>
 
         <button
-          className="flex justify-center items-center gap-2 w-full text-neutral-grayishViolet font-medium py-3 px-8 border-2 border-solid border-gray-200 mt-7 rounded-xl transition-all"
+          className="flex justify-center items-center gap-3 w-full text-neutral-grayishViolet font-medium py-3 px-8 border-2 border-solid border-gray-200 hover:border-neutral-darkViolet mt-7 rounded-xl transition-all"
           onClick={async () => {
             const user = await googleAuth("createUser");
             addUser({

@@ -2,7 +2,7 @@
 
 Make links better, shorter, and see better-detailed insights for the link only with shortly.
 
-![](./public/shortly.png)
+![](./public/preview.png)
 
 ## The challenge
 

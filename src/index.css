@@ -18,7 +18,7 @@ button:focus {
 }
 
 .input:focus ~ .field-icon {
-  @apply bg-white rounded-md -left-1 -translate-y-[80%] shadow-lg shadow-gray-200;
+  @apply bg-white rounded-md -left-1 -translate-y-[80%] shadow-lg shadow-gray-300;
 }
 
 .input:focus ~ .toggle-password {

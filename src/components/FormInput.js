@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import eye from "../assets/images/eye.svg";
-import eyeSlash from "../assets/images/eye-slash.svg";
 import user from "../assets/images/user.svg";
 import email from "../assets/images/email.svg";
 import password from "../assets/images/password.svg";
@@ -29,16 +28,6 @@ const FormInput = ({
   return (
     <div className="flex flex-col gap-2">
       <div className="relative">
-        <label
-          htmlFor={id}
-          className="absolute z-50 top-1/2 left-0 -translate-y-1/2 w-12 h-5 grid place-items-center"
-        >
-          <img
-            src={imgSrc()}
-            alt={`${id} icon by flaticon uicons`}
-            className="w-4 h-4"
-          />
-        </label>
         {placeholder !== "Password" ? (
           <input
             type="text"
@@ -46,7 +35,7 @@ const FormInput = ({
             name={id}
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className={`input w-full text-sm py-3 pl-12 pr-4 bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+            className={`input w-full text-sm py-3 pl-12 pr-4 bg-gray-100 border-2 border-solid focus:outline-none rounded-xl ${
               error ? "border-secondary-red" : "border-gray-100"
             }`}
           />
@@ -58,32 +47,46 @@ const FormInput = ({
               id={id}
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              className={`input w-full text-sm py-3 pl-12 pr-[54px] bg-gray-100 border-2 border-solid border-gray-100 focus:border-[#2bd1cf] focus:outline-none rounded-xl ${
+              className={`input w-full text-sm py-3 pl-12 pr-[54px] bg-gray-100 border-2 border-solid focus:outline-none rounded-xl ${
                 error ? "border-secondary-red" : "border-gray-100"
               }`}
             />
-            <div className="absolute top-3 right-0 z-50 grid place-items-center w-[54px] h-6 cursor-pointer">
-              <label
+            <span className="absolute toggle-password top-1/2 -translate-y-1/2 right-2 z-50 grid place-items-center w-8 h-8 cursor-pointer transition-all">
+              <span
                 htmlFor={id}
                 onClick={togglePassword}
                 className="cursor-pointer"
               >
-                <div className={`relative w-5 show-password ${inputType === "text" && "slash"}`}>
+                <div
+                  className={`relative w-4 show-password ${
+                    inputType === "text" && "slash"
+                  }`}
+                >
                   <img src={eye} alt="eye icon by flaticon uicons" />
                   <span></span>
                 </div>
-              </label>
-            </div>
+              </span>
+            </span>
           </>
         )}
         <label
           htmlFor={id}
-          className={`placeholder absolute top-3.5 left-12 text-neutral-grayishViolet text-sm cursor-text transition-all duration-300 ${
+          className="field-icon absolute z-50 top-1/2 left-2 -translate-y-1/2 w-8 h-8 grid place-items-center transition-all"
+        >
+          <img
+            src={imgSrc()}
+            alt={`${id} icon by flaticon uicons`}
+            className="w-4 h-4"
+          />
+        </label>
+        <span
+          htmlFor={id}
+          className={`placeholder absolute top-3.5 left-12 text-neutral-grayishViolet text-sm transition-all duration-300 pointer-events-none ${
             value !== "" && "hide-placeholder"
           }`}
         >
           {placeholder.toLowerCase()}
-        </label>
+        </span>
       </div>
 
       {error && (

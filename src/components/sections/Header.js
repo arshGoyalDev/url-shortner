@@ -8,7 +8,7 @@ import user from "../../assets/images/user.svg";
 import home from "../../assets/images/home.svg";
 import logout from "../../assets/images/logout.svg";
 
-const Header = ({ activeLink }) => {
+const Header = () => {
   const { userDetails, logoutUser } = useContext(UserContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
@@ -36,7 +36,7 @@ const Header = ({ activeLink }) => {
       ${
         menuVisible
           ? "scale-100 translate-x-0 translate-y-0"
-          : "scale-0 translate-x-40 -translate-y-48"
+          : "scale-0 translate-x-36 -translate-y-48"
       }
       `}
       >
@@ -128,10 +128,6 @@ const Header = ({ activeLink }) => {
       </nav>
     </header>
   );
-};
-
-Header.defaultProps = {
-  activeLink: null,
 };
 
 export default Header;

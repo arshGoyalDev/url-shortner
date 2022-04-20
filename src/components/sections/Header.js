@@ -32,13 +32,19 @@ const Header = () => {
       >
         <ul className="flex flex-col lg:flex-row items-center lg:text-neutral-grayishViolet">
           <li>
-            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">Features</button>
+            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">
+              Features
+            </button>
           </li>
           <li>
-            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">Pricing</button>
+            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">
+              Pricing
+            </button>
           </li>
           <li>
-            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">Resources</button>
+            <button className="lg:font-semibold hover:text-black py-3 px-4 rounded-md transition-colors">
+              Resources
+            </button>
           </li>
         </ul>
 

@@ -4,9 +4,8 @@ const App = () => {
   return (
     <main className="bg-neutral-grayTwo min-h-screen">
       <div className="bg-white pb-36">
-
-      <Header />
-      <Hero />
+        <Header />
+        <Hero />
       </div>
     </main>
   );

@@ -3,9 +3,12 @@ import { useState } from "react";
 const UrlShortener = () => {
   const [link, setLink] = useState("");
 
+  const shortenLink = (e) => {
+    e.preventDefault();
+  }
 
   return (
-    <form>
+    <form onSubmit={shortenLink}>
       <div className="url-shortener flex flex-col md:flex-row gap-5 py-8 md:py-10 px-6 md:px-12 mx-5 lg:mx-20 xl:mx-36 -mt-20 md:-mt-16 rounded-lg">
         <div className="w-full relative">
           <input

@@ -8,27 +8,17 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-button:focus {
-  @apply outline-2 outline outline-neutral-darkBlue;
+.url-shortener {
+  background-image: url(./assets/images/bg-shorten-mobile.svg);
+  @apply bg-primary-darkVoilet bg-no-repeat bg-cover bg-right-top md:bg-left-top;
 }
 
-.input:focus ~ .placeholder,
-.hide-placeholder {
-  @apply left-16 opacity-0 invisible;
+@media only screen and (min-width: 768px) {
+  .url-shortener {
+    background-image: url(./assets/images/bg-shorten-desktop.svg);
+  }
 }
 
-.input:focus ~ .field-icon {
-  @apply bg-white rounded-md -left-1 -translate-y-[80%] shadow-lg shadow-gray-300;
-}
-
-.input:focus ~ .toggle-password {
-  @apply bg-white rounded-md shadow-md shadow-gray-200;
-}
-
-.show-password span {
-  @apply absolute top-[6px] -left-1 block w-[140%] h-[2px] bg-black rounded-md -rotate-45 scale-x-0 transition-all;
-}
-
-.slash span {
-  @apply scale-x-100;
+.url-shortener input:focus ~ span {
+  @apply left-10 opacity-0 invisible;
 }

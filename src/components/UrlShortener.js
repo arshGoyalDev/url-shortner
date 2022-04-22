@@ -5,7 +5,7 @@ const UrlShortener = () => {
 
   const shortenLink = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <form onSubmit={shortenLink}>
@@ -19,7 +19,13 @@ const UrlShortener = () => {
             onChange={(e) => setLink(e.target.value)}
             className="w-full py-3 md:py-4 px-4 md:px-7 rounded-md focus:outline-none"
           />
-          <span className={`absolute top-1/2 left-4 md:left-7 -translate-y-1/2 text-neutral-grayishViolet font-medium text-sm transition-all duration-300 pointer-events-none ${link !== "" && "left-10 opacity-0 invisible"}`}>Shorten a link here...</span>
+          <span
+            className={`absolute top-1/2 left-4 md:left-7 -translate-y-1/2 text-neutral-grayishViolet font-medium text-sm transition-all duration-300 pointer-events-none ${
+              link !== "" && "left-10 opacity-0 invisible"
+            }`}
+          >
+            Shorten a link here...
+          </span>
         </div>
         <button className="w-full md:w-[180px] text-white font-semibold py-3 md:py-4 px-4 md:px-8 bg-primary-cyan hover:bg-[#63dddd] rounded-md transition-colors duration-200">
           Shorten it!

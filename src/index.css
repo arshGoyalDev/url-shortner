@@ -8,6 +8,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+button {
+  @apply focus:outline-4 focus:outline focus:outline-neutral-darkViolet
+}
+
 .url-shortener {
   background-image: url(./assets/images/bg-shorten-mobile.svg);
   @apply bg-primary-darkVoilet bg-no-repeat bg-cover bg-right-top md:bg-left-top;

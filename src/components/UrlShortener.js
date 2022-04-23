@@ -23,8 +23,6 @@ const UrlShortener = () => {
       : setError(true);
   };
 
-  console.log(shortenedLinks);
-
   return (
     <div className="mx-5 lg:mx-20 xl:mx-36 -mt-24 md:-mt-20">
       <form onSubmit={shortenLink}>
@@ -35,6 +33,7 @@ const UrlShortener = () => {
               name="url"
               id="url"
               value={url}
+              onFocus={() => setError(false)}
               onChange={(e) => setUrl(e.target.value)}
               className={`w-full py-3 md:py-4 px-4 md:px-7 border-4 border-solid focus:border-primary-cyan rounded-md focus:outline-none transition-all duration-300 ${
                 error ? "border-secondary-red" : "border-transparent"
@@ -61,7 +60,7 @@ const UrlShortener = () => {
         </div>
       </form>
 
-      <div>
+      <div className="flex flex-col gap-5 mt-5">
         {shortenedLinks.length !== 0 &&
           shortenedLinks.map((linkData) => <ShortenedLink data={linkData} />)}
       </div>

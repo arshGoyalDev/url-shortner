@@ -9,7 +9,7 @@ body {
 }
 
 button {
-  @apply focus:outline-4 focus:outline focus:outline-neutral-darkViolet
+  @apply focus:outline-4 focus:outline focus:outline-neutral-darkViolet;
 }
 
 .url-shortener {

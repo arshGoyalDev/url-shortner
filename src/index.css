@@ -19,6 +19,6 @@ body {
   }
 }
 
-.url-shortener input:focus ~ span {
+.url-shortener input:focus ~ .placeholder-text {
   @apply left-10 opacity-0 invisible;
 }

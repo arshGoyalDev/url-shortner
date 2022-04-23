@@ -1,5 +1,23 @@
+import { useEffect, useState } from "react";
+
 const ShortenedLink = ({ data }) => {
-  console.log(data);
+  const [copied, setCopied] = useState(false);
+
+  const copyLink = async () => {
+    await navigator.clipboard.writeText(data.full_short_link);
+    setCopied(true);
+  };
+
+  useEffect(() => {
+    if (!copied) return;
+
+    const timeout = setTimeout(() => {
+      setCopied(false);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [copied]);
+
   return (
     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full lg:py-4 lg:px-5 bg-white rounded-md">
       <a
@@ -19,8 +37,13 @@ const ShortenedLink = ({ data }) => {
         >
           {data.full_short_link}
         </a>
-        <button className="text-white font-semibold py-3 px-8 bg-primary-cyan hover:bg-opacity-80 rounded-md transition-all">
-          Copy
+        <button
+          onClick={copyLink}
+          className={`sm:w-28 text-white font-semibold py-3 px-8 sm:px-0 hover:bg-opacity-80 rounded-md transition-all ${
+            copied ? "bg-neutral-darkBlue" : "bg-primary-cyan "
+          }`}
+        >
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
     </div>

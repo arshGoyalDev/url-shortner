@@ -14,15 +14,28 @@ button {
 
 .url-shortener {
   background-image: url(./assets/images/bg-shorten-mobile.svg);
+}
+
+.url-shortener,
+.call-to-action {
   @apply bg-primary-darkVoilet bg-no-repeat bg-cover bg-right-top md:bg-left-top;
+}
+
+
+.url-shortener input:focus ~ .placeholder-text {
+  @apply left-10 opacity-0 invisible;
+}
+
+.call-to-action {
+  background-image: url(./assets/images/bg-boost-mobile.svg);
 }
 
 @media only screen and (min-width: 768px) {
   .url-shortener {
     background-image: url(./assets/images/bg-shorten-desktop.svg);
   }
-}
 
-.url-shortener input:focus ~ .placeholder-text {
-  @apply left-10 opacity-0 invisible;
+  .call-to-action {
+    background-image: url(./assets/images/bg-boost-desktop.svg);
+  }
 }

@@ -1,4 +1,4 @@
-import { Header, Hero, Features } from "./components/sections";
+import { Header, Hero, Features, CallToAction } from "./components/sections";
 import UrlShortener from "./components/UrlShortener";
 
 const App = () => {
@@ -11,6 +11,7 @@ const App = () => {
 
       <UrlShortener />
       <Features />
+      <CallToAction />
     </main>
   );
 };

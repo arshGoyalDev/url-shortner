@@ -1,9 +1,15 @@
-import { Header, Hero, Features, CallToAction } from "./components/sections";
+import {
+  Header,
+  Hero,
+  Features,
+  CallToAction,
+  Footer,
+} from "./components/sections";
 import UrlShortener from "./components/UrlShortener";
 
 const App = () => {
   return (
-    <main className="bg-neutral-grayTwo min-h-[500vh]">
+    <main className="bg-neutral-grayTwo">
       <div className="bg-white pb-36">
         <Header />
         <Hero />
@@ -12,6 +18,7 @@ const App = () => {
       <UrlShortener />
       <Features />
       <CallToAction />
+      <Footer />
     </main>
   );
 };

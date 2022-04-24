@@ -28,7 +28,7 @@ const featuresArray = [
 
 const Features = () => {
   return (
-    <div className="px-5 lg:px-20 xl:px-36 mt-20">
+    <section className="px-5 lg:px-20 xl:px-36 mt-20">
       <div className="flex flex-col items-center gap-6 text-center">
         <h2 className="text-3xl font-bold text-neutral-darkViolet">
           Advanced Statistics
@@ -42,6 +42,7 @@ const Features = () => {
       <div className="flex flex-col xl:flex-row xl:justify-evenly items-center gap-28 xl:gap-6 mt-24 xl:mt-0">
         {featuresArray.map((feature) => (
           <div
+            key={feature.id}
             className={`relative max-w-[360px] xl:max-w-[450px] ${
               featuresArray.indexOf(feature) === 1 && "xl:pt-28"
             } ${featuresArray.indexOf(feature) === 2 && "xl:pt-56"}`}
@@ -63,7 +64,7 @@ const Features = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

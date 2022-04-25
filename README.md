@@ -13,12 +13,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 - Receive an error message when the `form` is submitted if:
   - The `input` field is empty
 
-#### Additional Features
-
-- Users can login and sign-up
-- Users can view their all previous shortened links
-- Users can delete account info or update info
-
 #### Challenge Link
 - Challenge by Frontend Mentor
 - [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G).

@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ShortenedLink from "./ShortenedLink";
 
 const UrlShortener = () => {
+  const getStoredLinks = JSON.parse(localStorage.getItem("links")) ?? [];
   const [url, setUrl] = useState("");
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState(getStoredLinks);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("links", JSON.stringify(links));
+  }, [links]);
 
   const shortenLink = async (e) => {
     e.preventDefault();
-
     if (url.replaceAll(" ", "") === "") {
       setError(true);
       return;
@@ -17,10 +21,7 @@ const UrlShortener = () => {
 
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
     const fetchedLink = await res.json();
-
-    fetchedLink.ok
-      ? setLinks([...links, fetchedLink.result])
-      : setError(true);
+    fetchedLink.ok ? setLinks([...links, fetchedLink.result]) : setError(true);
   };
 
   return (
@@ -62,7 +63,9 @@ const UrlShortener = () => {
 
       <div className="flex flex-col gap-5 mt-5">
         {links.length !== 0 &&
-          links.map((link) => <ShortenedLink data={link} />)}
+          links.map((link) => (
+            <ShortenedLink key={links.indexOf(link)} data={link} />
+          ))}
       </div>
     </div>
   );

@@ -33,7 +33,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com) - CSS Framework
-- [Firebase](https://firebase.google.com) - Database
 
 ### What I learned
 

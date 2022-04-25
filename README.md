@@ -20,7 +20,7 @@ Make links better, shorter, and see better-detailed insights for the link only w
 ### Links
 
 - [Solution URL](https://url-shortner-two-tau.vercel.app)
-- [Live Site URL](https://www.frontendmentor.io/solutions/url-shortener-api-landing-page-SJpmbvEB5);
+- [Live Site URL](https://www.frontendmentor.io/solutions/url-shortener-api-landing-page-SJpmbvEB5)
 
 ### Built with
 

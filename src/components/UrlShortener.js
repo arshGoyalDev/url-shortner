@@ -4,7 +4,7 @@ import ShortenedLink from "./ShortenedLink";
 
 const UrlShortener = () => {
   const [url, setUrl] = useState("");
-  const [shortenedLinks, setShortenedLinks] = useState([]);
+  const [links, setLinks] = useState([]);
   const [error, setError] = useState(false);
 
   const shortenLink = async (e) => {
@@ -19,7 +19,7 @@ const UrlShortener = () => {
     const fetchedLink = await res.json();
 
     fetchedLink.ok
-      ? setShortenedLinks([...shortenedLinks, fetchedLink.result])
+      ? setLinks([...links, fetchedLink.result])
       : setError(true);
   };
 
@@ -51,7 +51,7 @@ const UrlShortener = () => {
                 error ? "visible opacity-100" : "invisible opacity-0"
               }`}
             >
-              Please add a url
+              Please add valid a url
             </span>
           </div>
           <button className="w-full md:w-[180px] text-white font-semibold py-3 md:py-4 px-4 md:px-8 bg-primary-cyan hover:bg-[#63dddd] rounded-md transition-colors duration-200">
@@ -61,8 +61,8 @@ const UrlShortener = () => {
       </form>
 
       <div className="flex flex-col gap-5 mt-5">
-        {shortenedLinks.length !== 0 &&
-          shortenedLinks.map((linkData) => <ShortenedLink data={linkData} />)}
+        {links.length !== 0 &&
+          links.map((link) => <ShortenedLink data={link} />)}
       </div>
     </div>
   );

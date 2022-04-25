@@ -14,7 +14,6 @@ const ShortenedLink = ({ data }) => {
     const timeout = setTimeout(() => {
       setCopied(false);
     }, 3000);
-
     return () => clearTimeout(timeout);
   }, [copied]);
 

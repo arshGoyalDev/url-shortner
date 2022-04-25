@@ -2,31 +2,31 @@ import iconBrandRecognition from "../../assets/images/icon-brand-recognition.svg
 import iconDetailedRecords from "../../assets/images/icon-detailed-records.svg";
 import iconFullyCustomizable from "../../assets/images/icon-fully-customizable.svg";
 
-const featuresArray = [
-  {
-    id: 1,
-    icon: iconBrandRecognition,
-    title: "Brand Recognition",
-    content:
-      "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content.",
-  },
-  {
-    id: 2,
-    icon: iconDetailedRecords,
-    title: "Detailed Records",
-    content:
-      "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.",
-  },
-  {
-    id: 3,
-    icon: iconFullyCustomizable,
-    title: "Fully Customizable",
-    content:
-      "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
-  },
-];
-
 const Features = () => {
+  const featuresArray = [
+    {
+      id: 1,
+      icon: iconBrandRecognition,
+      title: "Brand Recognition",
+      content:
+        "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content.",
+    },
+    {
+      id: 2,
+      icon: iconDetailedRecords,
+      title: "Detailed Records",
+      content:
+        "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.",
+    },
+    {
+      id: 3,
+      icon: iconFullyCustomizable,
+      title: "Fully Customizable",
+      content:
+        "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
+    },
+  ];
+
   return (
     <section className="px-5 lg:px-20 xl:px-36 mt-20">
       <div className="flex flex-col items-center gap-6 text-center">

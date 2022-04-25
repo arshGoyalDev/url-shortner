@@ -25,7 +25,7 @@ Make links better, shorter, and see better-detailed insights for the link only w
 
 ### Links
 
-- Solution URL: Not completed yet
+- [Solution URL](https://url-shortner-two-tau.vercel.app)
 - Live Site URL: Not deployed yet
 
 ### Built with

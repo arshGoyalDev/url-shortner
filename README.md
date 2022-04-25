@@ -28,14 +28,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com) - CSS Framework
 
-### What I learned
-
-It's my first time using firebase so I have learnt important things about auth, firestore & storage while doing the challenge
-
-### Continued development
-
-This project currently is in development
-
 ### Author
 
 - GitHub - [@arshWebDev](https://github.com/arshWebDev)

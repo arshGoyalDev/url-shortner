@@ -61,7 +61,7 @@ const UrlShortener = () => {
         </div>
       </form>
 
-      <div className="flex flex-col gap-5 mt-5">
+      <div aria-live={links.length !== 0 ? "polite" : "off"} className="flex flex-col gap-5 mt-5">
         {links.length !== 0 &&
           links.map((link) => (
             <ShortenedLink key={links.indexOf(link)} data={link} />

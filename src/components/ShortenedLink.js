@@ -23,7 +23,7 @@ const ShortenedLink = ({ data }) => {
         href={data.original_link}
         target="_blank"
         rel="noreferrer noopener"
-        className="block font-medium hover:text-neutral-grayishViolet pt-5 pb-4 px-4 sm:px-6 lg:p-0 border-b-2 lg:border-none border-solid border-gray-200 transition-colors"
+        className="block break-words font-medium hover:text-neutral-grayishViolet pt-5 pb-4 px-4 sm:px-6 lg:p-0 border-b-2 lg:border-none border-solid border-gray-200 transition-colors"
       >
         {data.original_link}
       </a>

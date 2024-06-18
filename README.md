@@ -17,11 +17,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 - Challenge by Frontend Mentor
 - [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G).
 
-### Links
-
-- [Solution URL](https://url-shortner-two-tau.vercel.app)
-- [Live Site URL](https://www.frontendmentor.io/solutions/url-shortener-api-landing-page-SJpmbvEB5)
-
 ### Built with
 
 - Mobile-first workflow

@@ -30,6 +30,6 @@ Make links better, shorter, and see better-detailed insights for the link only w
 
 ### Author
 
-- GitHub - [@arshWebDev](https://github.com/arshWebDev)
-- Twitter - [@arshWebDev](https://www.twitter.com/arshWebDev)
-- Frontend Mentor - [@arshWebDev](https://www.frontendmentor.io/profile/arshWebDev)
+- GitHub - [@arshGoyalDev](https://github.com/arshGoyalDev)
+- Twitter - [@arshGoyalDev](https://www.twitter.com/arshGoyalDev)
+- Frontend Mentor - [@arshGoyalDev](https://www.frontendmentor.io/profile/arshGoyalDev)
